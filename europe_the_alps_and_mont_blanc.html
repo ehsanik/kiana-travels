@@ -1,0 +1,357 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Kiana Ehsani</title>
+    <meta name="description" content="Kiana Travels">
+    <link rel="canonical" href="https://ehsanik.github.io/">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      header img {
+        width: 50px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      header h1 {
+        display: inline;
+        margin-left: 10px;
+        font-size: 24px;
+        vertical-align: middle;
+      }
+      /* Style the navbar container */
+      .navbar-container {
+          background-color: #333;
+          overflow: hidden;
+      }
+
+      /* Style the navbar */
+      nav ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      nav ul li {
+          display: inline-block;
+          position: relative;
+      }
+
+      nav ul li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+      }
+
+      nav ul li a:hover {
+          background-color: #575757;
+      }
+
+      /* Dropdown menu */
+      nav ul ul {
+          display: none;
+          position: absolute;
+          background-color: #333;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      nav ul li:hover > ul {
+          display: block;
+      }
+
+      nav ul ul li {
+          display: block;
+      }
+
+      nav ul ul li a {
+          padding: 14px 20px;
+      }
+
+      .container {
+        width: 80%;
+        margin: 20px auto;
+      }
+      .container h1, .container h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+      }
+      .container p {
+        line-height: 1.6;
+      }
+      .container .updates {
+        margin-bottom: 20px;
+      }
+      .container .updates p {
+        margin: 5px 0;
+      }
+      .container .contact a img {
+        margin: 5px;
+        vertical-align: middle;
+      }
+      footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .contact {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .contact a img {
+        margin: 5px;
+        vertical-align: middle;
+      }
+      .selected_work_img{
+        width:100px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .grid-item {
+        text-align: center;
+      }
+      .grid-item img {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 0;
+      }
+      .column {
+        flex: 1;
+        padding: 0px;
+      }
+      .papers-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .paper {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .teaser {
+        flex: 0 0 200px; /* Adjust width as needed */
+        max-width: 200px;
+        height: auto;
+        border-radius: 8px;
+      }
+      .paper-details {
+        flex: 1;
+      }
+      .paper-details h3 {
+        margin-top: 0;
+      }
+        
+      .header_main {
+        position: relative;
+        background: url('static/mtn_bg.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      }
+      .header_main::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+        z-index: 0;
+      }
+
+      .left-column, .right-column {
+        position: relative;
+        z-index: 1;
+      }
+      .left-column {
+        flex: 0 0 600px; /* Adjust width as needed */
+        text-align: center;
+        margin-right: 20px; /* Adjust the margin to move it closer to center-left */
+      }
+      .left-column img {
+        border-radius: 8px;
+        max-width: 300px;
+        height: auto;
+      }
+      .small-font {
+        font-size: 0.6em;
+      }
+      .right-column {
+        flex: 1;
+        padding-left: 20px;
+      }
+      .right-column h1 {
+        margin-top: 0;
+        font-size: 2.5em;
+      }
+      .right-column p {
+        margin: 10px 0 0;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+<body>
+    <header>
+        <!-- <img src="static/kiana_small.jpg" alt="Kiana Ehsani"> -->
+        <h1>Kiana Travels</h1> 
+    </header>
+    <div class="navbar-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="climb_stats.html">Climb Stats</a></li>
+                <li>
+                    <a href="trips.html">Trips</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        
+  <div class="container">
+
+  <h1>Europe (The Alps!) and Mont Blanc</h1>
+  <p>Note that most of this is written via speech to text so if you see a lot of mistakes including grammar and dictation or words that just don't make any sense that's not my fault it's Google's fault.</p>
+  <h2>Amsterdam (En route baby!)</h2>
+  <p>June 2</p>
+  <p>Amsterdam</p>
+  <p>Got coffee in bocca cafe</p>
+  <p>Walked to the museum </p>
+  <p>Rijksmuesum, get tickets in advance, online ones were sold out but we got it from the ticket stand</p>
+  <p>Lavinia Good Food - This spot offers a variety of healthy options for breakfast and lunch, including salads, wraps, and smoothies.</p>
+  <p>Vondel park</p>
+  <p>In general be careful of bikes</p>
+  <h2>Como</h2>
+  <p>June 3 </p>
+  <p>Flew to Milan</p>
+  <p>Long lines for checking bags, took us 1.5 hours almost</p>
+  <p>Don't buy trains from Milan to Como, you can get it for 5 bucks. They leave Milan every hour from central station and every half an hour from another close by station</p>
+  <p>Make sure your hotel is close to the old town. Otherwise you have to walk for a really long time if you get a place in the new town</p>
+  <p>We went for a short walk after we got to Como</p>
+  <p>Don't forget to try aperol! Lemoncello and cheese plate</p>
+  <p>June 4</p>
+  <p>It was , rainy and cloudy. We went for the funicular to the town up hill brunate. Definitely  try the restaurants that have a view to the water. Go up the lighthouse. The view at the top is worth the €2 ticket. We walked down instead of taking the funicular and it was really really fun. </p>
+  <p>Got salad for dinner and it was great</p>
+  <p>La Vita è Bella Ristorante - Insalateria</p>
+  <p>+39 031 337 2157</p>
+  <p>https://maps.app.goo.gl/gKBpLzic6QRMMWDU6</p>
+  <p>June 5</p>
+  <p>Got ebikes for 55 euros each. Rode from como to Bellagio and back. It's sharing the road with the cars and scary at points but amazing views and great food in Bellagio</p>
+  <p>La Lanterna Bellagio</p>
+  <p>+39 031 951786</p>
+  <p>https://maps.app.goo.gl/iMnsYyDktqWZ3yZV9</p>
+  <p>We got gelato back in como and dinner at a very great place (slightly higher prices)</p>
+  <p>Rivenoteca</p>
+  <p>+39 335 668 8743</p>
+  <p>https://maps.app.goo.gl/TN9roSpaHJ7F2coP7</p>
+  <p>June 6</p>
+  <p>Took the train to Lucerne, 80$ per person</p>
+  <p>Train ride is beautiful. You get wifi on the ride. </p>
+  <p>We took a cab from train station to our airbnb (no Uber there) but we had too much luggage. </p>
+  <p>After dropping things of we walked to the city. Old town is really cute. We walk over the wooden bridges. Then we walked up to the old town wall and saw the towers (the clock tower was especially fun).</p>
+  <p>Musegg Wall Lucerne https://maps.app.goo.gl/WMVkUjvaLws286Qw6</p>
+  <p>We got dinner at a restaurant by the water but the food was just okay and everything way more expensive than Italy.</p>
+  <h2>Lucerne</h2>
+  <p>June 7</p>
+  <p>Walked to a local park and had a very chill day.</p>
+  <p>June 8</p>
+  <p>It was Mardi gras day so all the grocery stores were closed. We went on a hike (but had to buy shitty snack from the cabin at the bottom of the hike).</p>
+  <p>We took the train from the city to the bottom of mount pilatus. </p>
+  <p>Pilatus Railway</p>
+  <p>https://maps.app.goo.gl/bj7imv6gM7hDsPLS6</p>
+  <p>Hiked up for 3.5 hours. And took the cable car down (80$/p). The cog train's view is much better (which is the way we hiked)</p>
+  <p>You can see Eiger and Matterhorn from up there. </p>
+  <h2>Chamonix and Mont Blanc</h2>
+  <p>June 9</p>
+  <p>Took the train Early in the morning to Geneva and then the bus to Chamonix. It was a few minutes walk from the train station to the bus station. The bus was super on time and left right at the scheduled time.</p>
+  <p>We got to Chamonix. Did our shopping for the trip in Spar (https://maps.app.goo.gl/vES6VU4QGvSUAMRFA). Got our rentals from Ravanel and co https://maps.app.goo.gl/rgi4pQS8BrBEYTyU9</p>
+  <p>For boots, crampon, helmet, poles, harness, ice ax</p>
+  <p>110/p</p>
+  <p>Our hotel was in les houches so we took the bus there. 17min bus ride. All local buses are free.</p>
+  <p>We went out searching for dinner at 4:30 but the earliest option was at 6pm. Don't pay attention to working hours. They are open for drinks but dinner is later. </p>
+  <p>June 10</p>
+  <p>Woke up at 7. Left our luggage at the hotel and with our backpacks we walked to the cable car station to Bellevue. It was a 15 minute walk so if you wanna get the early one stay in les houches. Tickets were 17$ one way and 24 with return. It goes from 8am to 5:30pm. The mont Blanc tram was closed so we had to walk from Bellevue station to Refuge du Nid d'Aigle. Using the normal route it took us 3 hours, 2000ft gain and 3 miles. There were some engaging river crossing and scrambling. Later we found out that because the tram is out there is an easier way to get up by walking up the railway. Waaaay easier. </p>
+  <p>We started walking from Bellevue at 8:30am and we got to Tête Rousse Hut at 2pm. 5miles and 5000ft elevation gain. For booking the hut I had to spend days checking and re checking the website and according to the local guides it's even hard for them to book it sometimes. If the tram was open it would have been only 1.5 miles and 3000ft gain. </p>
+  <p> The route from nid daigle to tette rouse was also different from the normal track. There is a more direct way on the snow. We just followed the bootpack. </p>
+  <p>The hut is 55/p, dinner 41/p, breakfast 19/p. You can buy a liner for the sleeping for 10 which is highly recommended. It was pretty warm in there but also really loud. We slept at 7pm.</p>
+  <p>June 11</p>
+  <p>Woke up at 1, left at 2am. And I think we should have started a bit earlier. We were thrown off by the fact that the guides were starting at 4:00 a.m. however, they usually sleep in Gouter refuge and don't have to deal with the couloir coming down late in the day. </p>
+  <p>We started fully roped up (short rope recommended) after 15-20 min you get to the part where you traverse the couloir. Not so bad early in the day but as it gets warmer the big rocks falling down can be brutal. Going up the ridge is brutal. Many scrambling bits with fixed rope. We got to the top at 4:15. Took a break and started walking at 4:30. We got to the refuge vallot at 7:30am (restroom there if needed). We had a turn around time of 9:30 but ended up turning around at 9:15 only 100 meters short of the summit. The glacier travel is fairly straightforward and elevation is the only complication. Many climbers going up. We started heading down at 9:30. Got to the top of the couloir at 11:35. Going down the ridge with all those mixed rock and snow was a nightmare. I recommend taking the rope off instead of short roping. We got down at 1:40 (and yes we saw some rock falls even though it's super early in the season). It was all sunny and warm (too warm actually). When we got to tete rousse we decided to stay there instead of nid daigle. Got the dinner to treat ourselves and omg! Soup and cheese for appetizers, a plate of salmon, mashed potato and some delicious sauce (lentil instead of salmon for the vegetarian option). Finally an amazing peach mouse for dessert. We slept at 8 and frequently got woken up by the climbers who were starting their summit day.</p>
+  <p>June 12</p>
+  <p>Started walking down at 5am. Nid daigle at 6:10 and at the Bellevue at 7:20. Took the cable car down at 8am and packed up and headed to the city. This time we got a cab instead of the bus (it was 25$ for the ride and absolutely worth it).</p>
+  <p>Dave found the cab online and we ordered the cab via WhatsApp </p>
+  <p>+33 6 79 01 46 02</p>
+  <p>Headed back to Geneva at 11:15.</p>
+  <h2>Sorrento</h2>
+  <p>Buses are cheaper than privte shuttle but private shuttle takes you to the hotel. Hotels in downtown are not driveable so be ready to carry your stuff.</p>
+  <p>It can rain quite heavily!</p>
+  <h2>Turkey</h2>
+  <p>Cistern is pretty cool. We did a full day of walking tour and it was AWESOME. We got it through airbnb.</p>
+  <p>Check out restaurants. All are amazing. This was our favorite: </p>
+  <p><a href="https://goo.gl/maps/KT7bW4obqePf97Dw8">https://goo.gl/maps/KT7bW4obqePf97Dw8</a></p>
+  <p>Hanzade Terrace Restaurant</p>
+  <p>[Kiana]   [<a href="mailto:ehsanik@gmail.com">Email:ehsanik@gmail.com</a>]    [<a href="http://twitter.com/ehsanik">Twitter:@ehsanik</a>]   <a href="http://github.com/ehsanik">[Github:@ehsanik]</a></p>
+
+  </div>
+
+        <br><br><br><br><br>
+    </div>
+    <footer>
+        <p>© 2024 Kiana Ehsani. All rights reserved.</p>
+    </footer>
+</body>
+</html>

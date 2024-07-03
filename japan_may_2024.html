@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Kiana Ehsani</title>
+    <meta name="description" content="Kiana Travels">
+    <link rel="canonical" href="https://ehsanik.github.io/">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+      header {
+        background: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+      }
+      header img {
+        width: 50px;
+        border-radius: 50%;
+        vertical-align: middle;
+      }
+      header h1 {
+        display: inline;
+        margin-left: 10px;
+        font-size: 24px;
+        vertical-align: middle;
+      }
+      /* Style the navbar container */
+      .navbar-container {
+          background-color: #333;
+          overflow: hidden;
+      }
+
+      /* Style the navbar */
+      nav ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      nav ul li {
+          display: inline-block;
+          position: relative;
+      }
+
+      nav ul li a {
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+      }
+
+      nav ul li a:hover {
+          background-color: #575757;
+      }
+
+      /* Dropdown menu */
+      nav ul ul {
+          display: none;
+          position: absolute;
+          background-color: #333;
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      nav ul li:hover > ul {
+          display: block;
+      }
+
+      nav ul ul li {
+          display: block;
+      }
+
+      nav ul ul li a {
+          padding: 14px 20px;
+      }
+
+      .container {
+        width: 80%;
+        margin: 20px auto;
+      }
+      .container h1, .container h2 {
+        border-bottom: 2px solid #333;
+        padding-bottom: 5px;
+      }
+      .container p {
+        line-height: 1.6;
+      }
+      .container .updates {
+        margin-bottom: 20px;
+      }
+      .container .updates p {
+        margin: 5px 0;
+      }
+      .container .contact a img {
+        margin: 5px;
+        vertical-align: middle;
+      }
+      footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+      .contact {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .contact a img {
+        margin: 5px;
+        vertical-align: middle;
+      }
+      .selected_work_img{
+        width:100px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+      .grid-item {
+        text-align: center;
+      }
+      .grid-item img {
+        max-width: 100%;
+        height: auto;
+        max-height: 200px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #0056b3;
+      }
+
+      .two-columns {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0px 0;
+      }
+      .column {
+        flex: 1;
+        padding: 0px;
+      }
+      .papers-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .paper {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .teaser {
+        flex: 0 0 200px; /* Adjust width as needed */
+        max-width: 200px;
+        height: auto;
+        border-radius: 8px;
+      }
+      .paper-details {
+        flex: 1;
+      }
+      .paper-details h3 {
+        margin-top: 0;
+      }
+        
+      .header_main {
+        position: relative;
+        background: url('static/mtn_bg.jpg') no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        flex-wrap: wrap; /* Allow wrapping for smaller screens */
+      }
+      .header_main::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Dark overlay with transparency */
+        z-index: 0;
+      }
+
+      .left-column, .right-column {
+        position: relative;
+        z-index: 1;
+      }
+      .left-column {
+        flex: 0 0 600px; /* Adjust width as needed */
+        text-align: center;
+        margin-right: 20px; /* Adjust the margin to move it closer to center-left */
+      }
+      .left-column img {
+        border-radius: 8px;
+        max-width: 300px;
+        height: auto;
+      }
+      .small-font {
+        font-size: 0.6em;
+      }
+      .right-column {
+        flex: 1;
+        padding-left: 20px;
+      }
+      .right-column h1 {
+        margin-top: 0;
+        font-size: 2.5em;
+      }
+      .right-column p {
+        margin: 10px 0 0;
+        font-size: 1.2em;
+      }
+    </style>
+  </head>
+<body>
+    <header>
+        <!-- <img src="static/kiana_small.jpg" alt="Kiana Ehsani"> -->
+        <h1>Kiana Travels</h1> 
+    </header>
+    <div class="navbar-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="climb_stats.html">Climb Stats</a></li>
+                <li>
+                    <a href="trips.html">Trips</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="content">
+        
+  <div class="container">
+    
+      <h1>Japan - May 2024</h1>
+      <h2>May 17-25</h2>
+      <p>May 17</p>
+      <p>Came to ginza at 7pm. Really fun. Not much fun to go inside tho. Cool cheap stuff with cute designs if you're into it</p>
+      <p>May 18</p>
+      <p>This morning I spent a couple of hours organizing the next couple of days. I tried to go to the teamlab planets but booked out. It is a Saturday so that might be the reason, but in general it might be better to book in advance. I just didn't find it interesting enough. Instead I can to Tokyo tower 🗼</p>
+      <p>Then walked to midtown garden</p>
+      <p>Just a park nothing crazy</p>
+      <p>Nezu museum was closed so I had to skip that :(</p>
+      <p>Lunch at </p>
+      <p>https://maps.app.goo.gl/Uidg3jtgc9KTkEhTA</p>
+      <p>Then visited </p>
+      <p>https://maps.google.com/?cid=15490653164204088489&amp;entry=gps</p>
+      <p>It's a cool bookstore recommended by friends</p>
+      <p>Then</p>
+      <p>https://maps.app.goo.gl/4jGzNuZak8kKwgBh9 </p>
+      <p>Kyu Asakura House </p>
+      <p> Only 100 yen (70 cents)</p>
+      <p>Really cool house</p>
+      <p>Shinjuku at night. Pretty cool</p>
+      <p> Dinner at a sushi place that wasn't overcrowded. Locals don't use Google maps so the one that you see on Google maps with a lot of reviews or the touristy spots that are filled up</p>
+      <p>May 19</p>
+      <p>Got coffee at the cafe close to our hotel and a crepe cake yum</p>
+      <p>We did a walking tour with this app called pokke</p>
+      <p>Costs 1000 yen for each tour </p>
+      <p>Shinjuku Unveiled: Delving into the Heart of Tokyo is a captivating exploration into one of Tokyo's most vibrant districts. The tour promises an immersive journey through time, where the bustling streets of Shinjuku serve as your open-air museum, rich with stories, cultural nuances, and historical significance. From the serene Shinjuku Gyoen Park, a testament to Japan's harmonious relationship with nature, to the modern consumer culture of Takashimaya Times Square, you'll witness the unique fusion of tradition and innovation that defines Japan. Uncover the charm of Shinjuku's capsule hotels, a symbol of Japan's ingenious urban solutions, and let the meticulously crafted plastic food models, known as sampuru, tempt your taste buds. At the world's busiest railway station, you'll feel the pulsating energy that epitomizes Tokyo's relentless pace. This tour isn't just a sightseeing jaunt; it's an invitation to deepen your understanding of Japanese culture, history, and tradition, offering insights, stories, and experiences that will make your exploration of Shinjuku truly unforgettable. So gear up for a journey that engages all senses and lets you discover your own Japan.</p>
+      <p>Shinjuku one took us around 3 hours including a one hour lunch stop </p>
+      <p>The story of Yakuza and the fact that they are so active still was crazy! They got out of Shinjuku in 2020 because the government wanted to clean the streets for Olympics</p>
+      <p>(Include pictures of tour)</p>
+      <p>Shinjuku Gyoen National Garden </p>
+      <p>500 yen</p>
+      <p>Traditional Japanese garden and greenhouse</p>
+      <p>Meiji jingu</p>
+      <p>Discover the spiritual heart of Tokyo in our comprehensive guide to the Meiji Shrine. Starting at the imposing Torii gate, we delve into the significance of Shinto symbols and rituals, opening your eyes to Japans unique spiritual culture. Wander through the peaceful tranquility of the Kitasando, a less trodden path filled with rustling leaves and chirping birds that cleanse the mind. Marvel at the Shrine Bridge, a symbolic gateway separating the earthly and spiritual realms. You'll witness an array of vibrantly colored sake barrels, symbolizing the deep respect and gratitude the Japanese hold for their deities. Stroll down Omotesando Street, a sanctuary in bustling Tokyo, and take home traditional souvenirs as mementos. From ancient Japanese rituals to modern urban life, this guide is your key to unlock Japan's rich cultural tapestry, giving you an authentic taste of the country's heritage. Whether you're a history enthusiast or a curious traveler, join us for an unforgettable journey into the heart of Japan's spiritual life. Get ready to step into a realm of tranquility and sacredness that lies hidden in the heart of the bustling city. This is not just a tour; it's an invitation to experience the timeless beauty and spirituality of Japan.</p>
+      <p>This is a beautiful and very big complex. It took us one and a half hour to complete the tour. We also saw a wedding. It was pretty cool</p>
+      <p>We stopped at this book cafe and it was amazing </p>
+      <p>https://g.co/kgs/5Y8WtKQ</p>
+      <p>All you can drink + 1 hour seating 1500 per person</p>
+      <p>We then did the Shibuya tour</p>
+      <p>Around 1 hour</p>
+      <p>Total steps so far 30k</p>
+      <p>Shibuya tour description</p>
+      <p>Dive into Tokyo's vibrant heart with our immersive tour that begins at bustling Shibuya Station. Discover the touching tale of Hachiko, then ascend to Shibuya Sky for a breathtaking city view. Experience the world's busiest intersection, Shibuya Crossing, before exploring trendsetting fashion at Shibuya 109 and the secrets of 'Love Hotel Hill. Absorb the cultural richness of Bunkamura and the nostalgic charm of Nonbei Yokocho, before immersing yourself in the rhythm of Tower Records. Refresh in Miyashita Park, then indulge in upscale shopping at Omotesando and soak in Harajuku's youth culture on Takeshita Street. Relax at Yoyogi Park, an urban retreat amidst city chaos, before ending the tour at Meiji Shrine, a sanctuary reflecting Japan's rich tradition. This tour weaves together historical insights, cultural delights, and modern marvels for a captivating journey through Tokyo.</p>
+      <p>Then dinner here </p>
+      <p>https://maps.google.com/?cid=3342363753007324535&amp;entry=gps</p>
+      <p>Cool vibe restaurant </p>
+      <p>Kushiyaki Bistro Fukumimi Ginza</p>
+      <p>Dessert green tea in</p>
+      <p>Quil Fait Bon Grand Maison Ginza</p>
+      <p>キル フェ ボン グランメゾン銀座</p>
+      <p>https://maps.app.goo.gl/CsYkZZyFS4uDFe2c7</p>
+      <p>May 20</p>
+      <p>Left for hakone </p>
+      <p>Tickets are 2500 and the express train takes 1:20 hr and normal one takes 1:40hr</p>
+      <p>Express train goes every three hours so plan accordingly</p>
+      <p>We went to tenzan which allows tattoos</p>
+      <p>1500 yen for day pass</p>
+      <p>200 yen for towels</p>
+      <p>Nice restaurant (food is more authentic so a couple of dishes were harder for us to tolerate)</p>
+      <p>https://maps.app.goo.gl/SkUGkK6KH4XRXQZo7</p>
+      <p>We stayed at Yumoto Fujiya Hotel</p>
+      <p>湯本富士屋ホテル</p>
+      <p>It also has public onsen but it's no tattoos. You can book private bath for 2000. We also got an omakase for 12k yen. </p>
+      <p>We got dinner at hotel but didn't worth it at all</p>
+      <p>May 21</p>
+      <p>Left hotel at 5 am. Got to the base of the climb at 8</p>
+      <p>(We had coordinated transportation)</p>
+      <p>This was off season and we did through Fujinomia route. Gotemba is a good longer route and the yoshida is the worst and the most crowded. We saw maybe only 20 people total and it was beautiful. Early season Fuji highly recommended. Took a lot of breaks and an hour and half break at the summit. Total of 8 hours. We got dropped off at fujishin station and took bullet train to Kyoto</p>
+      <p>Stay in tanoya riokan</p>
+      <p>Really cool tea room and shower</p>
+      <p>May 22</p>
+      <p>Pastries and coffees nearby are amazing</p>
+      <p>Imperial Palace and the garden, no entrance fee, highly recommended (one hour is enough)</p>
+      <p>Be careful of hop bus being showed up on Google bus as a form of public transportation. Kinda a scam</p>
+      <p>Took the bus to philosophers path</p>
+      <p>Start from the southern most point of the path </p>
+      <p>Try green tea crepes! Yum!</p>
+      <p>Sopa noodle for lunch</p>
+      <p>It's alright. Similar to normal noodles imo</p>
+      <p>Best dumpling:</p>
+      <p>https://maps.app.goo.gl/BNPDN4RttWhnVhg38</p>
+      <p>Walking tour </p>
+      <p>Geisha district</p>
+      <p>LINK: https://kyotofreewalkingtour.com/kyoto-tours-schedule/kyoto-free-walking-tour-gion-5-22/</p>
+      <p>Hanamikoji district</p>
+      <p>Zen Buddhist temple</p>
+      <p>Kenninji Hatto (Nengedo, Lecture Hall)</p>
+      <p>法堂（拈華堂）</p>
+      <p>Yasaka Kōshin-dō Temple</p>
+      <p>金剛寺 (八坂庚申堂)</p>
+      <p>Hōkan-ji Temple (Yasaka Pagoda)</p>
+      <p>法観寺 (八坂の塔)</p>
+      <p>Maruyama Park</p>
+      <p>Famous for cherry blossoms</p>
+      <p>Tour was really good. We learned a lot about geisha culture and shinto culture </p>
+      <p>Then came to </p>
+      <p>Fushimi Inari Taisha</p>
+      <p>Fabulous! Where religion meets business. Must go</p>
+      <p>At least leave 2 hours. Has a 1 hour hike to top of the mountain.</p>
+      <p>It was recommended to us to do it at night (goes 24/7)</p>
+      <p> Recommendations from our guide</p>
+      <p>Enryakuji temple (Mt Hiei)</p>
+      <p>Kifune shrine</p>
+      <p>- Uji</p>
+      <p>Food:</p>
+      <p>- Yataizushi Gion Hanamikojicho &gt; sushi</p>
+      <p>-Gior Soy Milk Uno Yukiko &gt; Vegan Ramen</p>
+      <p>Kiku &gt; Izakaya (2F of the building)</p>
+      <p>ChaoChao Gyoza &gt; Dumplings</p>
+      <p>Ganko Takasegawa Nijo-en &gt; beautiful restaurant in Samurai Villa</p>
+      <p>Ichijoji &gt; Ramen district of Kyoto</p>
+      <p>Drinks:</p>
+      <p>- ING &gt; Rock'n'roll bar</p>
+      <p>- Gion Kiyomizu NEKI &gt; Sake Bar</p>
+      <p>- Barcode &gt; Karaoke Bar</p>
+      <p>- Rub'a'dub &gt; Reggae bar</p>
+      <p>May 23</p>
+      <p>Got breakfast at Le Petit Mec - Imadegawa</p>
+      <p>Le Petit Mec 今出川店</p>
+      <p>In general French bakeries are amazing  in Japan</p>
+      <p>Took the train to Yuri shrine. We put our luggages in the lockers (fit 2 carry one and one backpack in a big one) 700yen per day. </p>
+      <p>Train is half an hour and very scenic!!!</p>
+      <p>Admission fee 500</p>
+      <p>Possible to take the funicular</p>
+      <p>This was definitely the highlight of our experience. Very calm and soothing and you can get into the temple at the top</p>
+      <p>Head temple Kuramadera</p>
+      <p>The route to mount kumara summit was closed. We walked to </p>
+      <p>Kifune Shrine</p>
+      <p>Nice restaurants by the water and overpriced</p>
+      <p>Took a bus back to closest train station</p>
+      <p>Kyoto train station has the best food court in the mall. Unbelievable. Don't miss</p>
+      <p>Golden Kai for drinks, no mafia, just tourists now lol</p>
+      <p>May 24</p>
+      <p>Ueno station has great pastries</p>
+      <p>Shinobazu Pond</p>
+      <p>Tokyo national museum</p>
+      <p>In there based on recommendation we visited these halls:</p>
+      <p>Tokyo National Museum Gallery of Horyuji Treasures</p>
+      <p>東京国立博物館 法隆寺宝物館</p>
+      <p>Cool quick visit</p>
+      <p>Definitely download the app guide for the museum</p>
+      <p>Tokyo National Museum - Heiseikan</p>
+      <p>東京国立博物館 平成館</p>
+      <p>And the Japanese gallery</p>
+      <p>It took us two  hours total mainly at the Japanese gallery. </p>
+      <p>Then took a one hour break to listen to the audio tour of </p>
+      <p>Ameyoko Shopping District</p>
+      <p>上野アメ横商店街</p>
+      <p>And then visited the district </p>
+      <p>Asakusa plan:</p>
+      <p>Shared route</p>
+      <p>From 2-chōme-8 Kaminarimon, Taito City, Tokyo 111-0034, Japan to 2-chōme-8 Asakusa, Taito City, Tokyo 111-0032, Japan via 雷門通り.</p>
+      <p>25 min (1.7 km)</p>
+      <p>To see this route visit https://maps.app.goo.gl/zxwz3kpyY4ATg9YP6</p>
+      <p>Definitely go to top of </p>
+      <p>Asakusa Culture Tourist Information Center</p>
+      <p>Great view, it's free and has a cafe at the top</p>
+      <p>We did an omakase, 90 bucks per person. 8 course meal all beef. The restaurant wasn't on Google maps and only on table log. Tablelog is the way to go. And remember, above 4 is astounding. 3.5 is great above 3 is good. </p>
+      <p>May 25</p>
+      <p>Coffee at </p>
+      <p>Lucent Coffee</p>
+      <p>Really great coffee </p>
+      <p>KIMONO TEA CEREMONY MAIKOYA TOKYO</p>
+      <p>We did tea ceremony and kimono experience. Highly recommended. Just the experience of wearing the kimono and see how restricting it is was a great experience.</p>
+      <p>Kappabashi Knife Gallery 2F (Limited Knife shop)</p>
+      <p>Knife district</p>
+      <p>Noh show in the national noh theater</p>
+      <p>We got there late and couldn't get to our seat so no subtitles. The show was around two hours. We ended up leaving</p>
+      <p>Wagyu tasting </p>
+      <p>emc</p>
+      <p>https://maps.app.goo.gl/xBRQWT7dhhDLm2uG6</p>
+      <p>The best thing ever! 130$ per person through Airbnb</p>
+      <p>Great wagyu and sake pairing. </p>
+      <p>Definitely highlight of our trip</p>
+      <p>[Kiana]   [<a href="mailto:ehsanik@gmail.com">Email:ehsanik@gmail.com</a>]    [<a href="http://twitter.com/ehsanik">Twitter:@ehsanik</a>]   <a href="http://github.com/ehsanik">[Github:@ehsanik]</a></p>
+    
+  </div>
+
+        <br><br><br><br><br>
+    </div>
+    <footer>
+        <p>© 2024 Kiana Ehsani. All rights reserved.</p>
+    </footer>
+</body>
+</html>
