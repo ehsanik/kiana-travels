@@ -6,9 +6,6 @@ app = Flask(__name__)
 def home():
     return render_template('index.html')
 
-@app.route('/climb_stats.html')
-def climb_stats():
-    return render_template('climb_stats.html')
 
 @app.route('/trips.html')
 def trips():
@@ -61,6 +58,10 @@ def mexico_city():
 @app.route('/japan_may_2024.html')
 def japan_may_2024():
     return render_template('japan_may_2024.html')
+
+@app.route('/20240906_greece.html')
+def greece_september_2024():
+    return render_template('20240906_greece.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
