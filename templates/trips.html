@@ -1,32 +1,552 @@
-
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}All Trips - Kiana Travels{% endblock %}
 
 {% block content %}
-
-  <div class="container">
-    <h1>Kiana Travels</h1>
-
-    <div class="navbar-container">
-      <nav>
-        <ul>
-            <li><a href="20200609-montana_trip.html">20200609-Montana Trip</a></li>
-            <li><a href="20210725_mount_rainier_via_dc.html">20210725-Mount Rainier via DC</a></li>
-            <li><a href="20210501_mount_angeles_ski_touring.html">20210501-Mount Angeles Ski Touring</a></li>
-            <li><a href="20210514_hojjat_and_friends_in_town.html">20210514-Hojjat and Friends in town</a></li>
-            <li><a href="20210522_vahalla_peak_and_5050_pass.html">20210522-Vahalla Peak and 5050 pass</a></li>
-            <li><a href="20210527_memorial_weekend_with_marzi.html">20210527-Memorial Weekend with Marzi</a></li>
-            <li><a href="20210731_eldorado_peak.html">20210731-Eldorado Peak</a></li>
-            <li><a href="20211201_peru.html">20211201-Peru</a></li>
-            <li><a href="central_asia.html">Central Asia</a></li>
-            <li><a href="europe_the_alps_and_mont_blanc.html">Europe (The Alps!) and Mont Blanc</a></li>
-            <li><a href="mexico_city.html">Mexico City</a></li>
-            <li><a href="japan_may_2024.html">Japan - May 2024</a></li>
-            <li><a href="20240906_greece.html">Greece - September 2025</a></li>
-        </ul>
+<div class="container">
+  <!-- Header Section -->
+  <div class="trips-header mb-8">
+    <h1>My Travel Adventures</h1>
+    <p class="text-lg text-gray-600 mb-6">A collection of my journeys around the world, from mountain peaks to city streets</p>
+    
+    <!-- Search and Filter Controls -->
+    <div class="controls-section mb-6">
+      <div class="search-filter-container">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="trip-search" placeholder="Search trips..." class="search-input">
+        </div>
         
-      </nav>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mountains">Mountains</button>
+          <button class="filter-btn" data-filter="cities">Cities</button>
+          <button class="filter-btn" data-filter="international">International</button>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Trips Grid -->
+  <div class="trips-grid grid grid-cols-3" id="trips-container">
+    
+    <!-- Greece Trip -->
+    <div class="trip-card card" data-tags="international cities" data-year="2024">
+      <div class="trip-image">
+        <img src="static/Home/4d298a8e1a8095ee7548ff04702a759a.jpg" alt="Greece" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            Sep 2024
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="20240906_greece.html">Greece Adventure</a>
+        </h3>
+        <p class="trip-description">Ancient Athens, mystical Delphi, and incredible Mediterranean cuisine. A perfect blend of history and culture.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Greece
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            7 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Japan Trip -->
+    <div class="trip-card card" data-tags="international cities" data-year="2024">
+      <div class="trip-image">
+        <img src="static/Japan - May 2024/819ecbdc3cd9c9631826145c7722624d.jpg" alt="Japan" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            May 2024
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="japan_may_2024.html">Japan Spring Journey</a>
+        </h3>
+        <p class="trip-description">Cherry blossoms, traditional temples, and modern marvels. An unforgettable spring adventure through Japan.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Japan
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            14 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mexico City -->
+    <div class="trip-card card" data-tags="international cities" data-year="2023">
+      <div class="trip-image">
+        <img src="static/Home/42e88c3b8fe9c66d456e4b58461867ab.jpg" alt="Mexico City" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            2023
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="mexico_city.html">Mexico City</a>
+        </h3>
+        <p class="trip-description">Vibrant culture, incredible food, and rich history in one of the world's great megacities.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Mexico
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            5 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Central Asia -->
+    <div class="trip-card card" data-tags="international mountains" data-year="2022">
+      <div class="trip-image">
+        <img src="static/Central Asia/819ecbdc3cd9c9631826145c7722624d.jpg" alt="Central Asia" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            2022
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="central_asia.html">Central Asia Expedition</a>
+        </h3>
+        <p class="trip-description">Epic mountain landscapes and rich nomadic culture across the steppes of Central Asia.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Central Asia
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            21 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Europe Alps -->
+    <div class="trip-card card" data-tags="international mountains" data-year="2022">
+      <div class="trip-image">
+        <img src="static/Europe The Alps and Mont Blanc/819ecbdc3cd9c9631826145c7722624d.jpg" alt="European Alps" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            2022
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="europe_the_alps_and_mont_blanc.html">European Alps & Mont Blanc</a>
+        </h3>
+        <p class="trip-description">Conquering the highest peaks of Europe, including the legendary Mont Blanc summit.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            France, Switzerland
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            14 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Peru -->
+    <div class="trip-card card" data-tags="international mountains" data-year="2021">
+      <div class="trip-image">
+        <img src="static/20211201-Peru/352d6a93c3d43fbcd8bbdd504bb1ec4f.jpg" alt="Peru" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            Dec 2021
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="20211201_peru.html">Peru Adventure</a>
+        </h3>
+        <p class="trip-description">Ancient Inca trails, majestic Andean peaks, and the wonder of Machu Picchu.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Peru
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            10 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Eldorado Peak -->
+    <div class="trip-card card" data-tags="mountains" data-year="2021">
+      <div class="trip-image">
+        <img src="static/20210731- Eldorado Peak/819ecbdc3cd9c9631826145c7722624d.jpg" alt="Eldorado Peak" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            Jul 2021
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="20210731_eldorado_peak.html">Eldorado Peak</a>
+        </h3>
+        <p class="trip-description">A challenging climb to one of the North Cascades' most iconic peaks with stunning glacier views.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Washington, USA
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            3 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Mount Rainier -->
+    <div class="trip-card card" data-tags="mountains" data-year="2021">
+      <div class="trip-image">
+        <img src="static/20210725-Mount Rainier via DC/819ecbdc3cd9c9631826145c7722624d.jpg" alt="Mount Rainier" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            Jul 2021
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="20210725_mount_rainier_via_dc.html">Mount Rainier via DC Route</a>
+        </h3>
+        <p class="trip-description">Summit attempt on Washington's highest peak via the classic Disappointment Cleaver route.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Washington, USA
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            4 days
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Memorial Weekend -->
+    <div class="trip-card card" data-tags="mountains" data-year="2021">
+      <div class="trip-image">
+        <img src="static/20210527-Memorial Weekend with Marzi/819ecbdc3cd9c9631826145c7722624d.jpg" alt="Memorial Weekend" loading="lazy">
+        <div class="trip-overlay">
+          <div class="trip-date">
+            <i class="fas fa-calendar"></i>
+            May 2021
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="trip-title">
+          <a href="20210527_memorial_weekend_with_marzi.html">Memorial Weekend with Marzi</a>
+        </h3>
+        <p class="trip-description">A perfect mountain getaway with friends, exploring trails and enjoying nature's beauty.</p>
+        <div class="trip-meta">
+          <span class="trip-location">
+            <i class="fas fa-map-marker-alt"></i>
+            Washington, USA
+          </span>
+          <span class="trip-duration">
+            <i class="fas fa-clock"></i>
+            3 days
+          </span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
+  <!-- Load More Button -->
+  <div class="text-center mt-8">
+    <button class="btn btn-secondary" id="load-more-btn" style="display: none;">
+      <i class="fas fa-chevron-down"></i>
+      Load More Trips
+    </button>
+  </div>
+</div>
+
+<style>
+.trips-header h1 {
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+}
+
+.controls-section {
+  background: var(--white);
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.search-filter-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-4);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray-400);
+  z-index: 1;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-base);
+  transition: all var(--transition-fast);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.filter-buttons {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-2) var(--space-4);
+  border: 2px solid var(--gray-200);
+  background: var(--white);
+  color: var(--gray-600);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.filter-btn.active {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--white);
+}
+
+.trips-grid {
+  gap: var(--space-6);
+}
+
+.trip-card {
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.trip-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+}
+
+.trip-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.trip-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.trip-card:hover .trip-image img {
+  transform: scale(1.05);
+}
+
+.trip-overlay {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+}
+
+.trip-date {
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--white);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+}
+
+.trip-title {
+  margin-bottom: var(--space-3);
+}
+
+.trip-title a {
+  color: var(--gray-900);
+  text-decoration: none;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.trip-title a:hover {
+  color: var(--primary-color);
+}
+
+.trip-description {
+  color: var(--gray-600);
+  margin-bottom: var(--space-4);
+  line-height: 1.6;
+}
+
+.trip-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-sm);
+  color: var(--gray-500);
+}
+
+.trip-location,
+.trip-duration {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.trip-card.hidden {
+  display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .trips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .search-filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .trips-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .search-box {
+    min-width: auto;
+  }
+  
+  .filter-buttons {
+    justify-content: flex-start;
+  }
+  
+  .trip-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+}
+</style>
+
+<script>
+// Search functionality
+const searchInput = document.getElementById('trip-search');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const tripCards = document.querySelectorAll('.trip-card');
+const tripsContainer = document.getElementById('trips-container');
+
+// Search function
+function filterTrips() {
+  const searchTerm = searchInput.value.toLowerCase();
+  const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+  
+  tripCards.forEach(card => {
+    const title = card.querySelector('.trip-title a').textContent.toLowerCase();
+    const description = card.querySelector('.trip-description').textContent.toLowerCase();
+    const tags = card.dataset.tags;
+    
+    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+    const matchesFilter = activeFilter === 'all' || tags.includes(activeFilter);
+    
+    if (matchesSearch && matchesFilter) {
+      card.classList.remove('hidden');
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+}
+
+// Event listeners
+searchInput.addEventListener('input', filterTrips);
+
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+    filterTrips();
+  });
+});
+
+// Initial filter
+filterTrips();
+</script>
 {% endblock %}
